@@ -41,7 +41,7 @@ public class NrealPlayerSetup : MonoBehaviourPunCallbacks
     {
         if (playerNameText != null)
         {
-            playerNameText.text = "Nreal: " + photonView.Owner.NickName;
+            playerNameText.text =  photonView.Owner.NickName;
         }
     }
 }
