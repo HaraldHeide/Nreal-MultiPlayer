@@ -12,28 +12,26 @@ public class NrealPlayerSetup : MonoBehaviourPunCallbacks
 
     [SerializeField]
     TextMeshProUGUI playerNameText;
-
-    // Start is called before the first frame update
     void Start()
     {
 
         if (photonView.IsMine)
         {
             transform.GetComponent<NrealMovementController>().enabled = true;
-            Camera[] cams = this.GetComponentsInChildren<Camera>();
-            foreach (Camera c in cams)
-            {
-                c.enabled = true;
-            }
+            //Camera[] cams = this.GetComponentsInChildren<Camera>();
+            //foreach (Camera c in cams)
+            //{
+            //    c.enabled = true;
+            //}
         }
         else
         {
             transform.GetComponent<NrealMovementController>().enabled = false;
-            Camera[] cams = this.GetComponentsInChildren<Camera>();
-            foreach (Camera c in cams)
-            {
-                c.enabled = false;
-            }
+            //Camera[] cams = this.GetComponentsInChildren<Camera>();
+            //foreach (Camera c in cams)
+            //{
+            //    c.enabled = false;
+            //}
 
         }
         SetPlayerUI();
@@ -43,8 +41,7 @@ public class NrealPlayerSetup : MonoBehaviourPunCallbacks
     {
         if (playerNameText != null)
         {
-            playerNameText.text = photonView.Owner.NickName;
-
+            playerNameText.text = "Nreal: " + photonView.Owner.NickName;
         }
     }
 }
